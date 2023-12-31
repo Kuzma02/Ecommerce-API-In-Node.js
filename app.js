@@ -3,12 +3,16 @@ require("express-async-errors");
 const express = require("express");
 const app = express();
 
+// rest of the packages
+const morgan = require("morgan");
+
 const connectDB = require("./db/connect");
 
 // middleware
 const notFound = require("./middleware/not-found");
 const errorHandler = require("./middleware/error-handler");
 
+app.use(morgan('tiny'));
 app.use(express.json());
 
 
